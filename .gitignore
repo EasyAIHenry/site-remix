@@ -1,0 +1,6 @@
+remix/target/
+remix/build/
+lab/
+node_modules/
+.DS_Store
+*.mp4

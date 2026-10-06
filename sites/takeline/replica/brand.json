@@ -1,0 +1,12 @@
+{
+  "name": "Takeline",
+  "avoid": [
+    "Linear app", "LinearApp", "Linear Agent", "Linear MCP", "Linear Method", "Linear Orbit", "Linear Insights",
+    "product development system", "teams and agents", "Purpose-built", "new species", "Designed for the AI era",
+    "Built for the future", "Available today", "Customer stories", "Contact sales", "Powering the companies",
+    "planning and building", "Planning and monitoring", "AI and automations", "Build, review, and ship",
+    "Intake and integrations", "Learn more", "Sign up", "Get started", "FIG 0."
+  ],
+  "domains": ["linear.app", "linear.com", "cdn.linear.app"],
+  "colors": ["#5e6ad2", "#08090a", "#f7f8f8", "#8a8f98", "#d0d6e0", "#62666d", "#0f1011", "#e5e5e6", "#e2e4e7", "#161718", "#23252a"]
+}

@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Takeline: the production system for AI video</title>
+<meta name="description" content="Takeline puts briefs, prompts, takes and approvals for AI video on one timeline. A fictional product, built as a design-system study.">
+<meta name="theme-color" content="#0a0908">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body>
+<!--ICONS:START--><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="i-aperture" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m14.31 8 5.74 9.94"/><path d="M9.69 8h11.48"/><path d="m7.38 12 5.74-9.94"/><path d="M9.69 16 3.95 6.06"/><path d="M14.31 16H2.83"/><path d="m16.62 12-5.74 9.94"/></symbol><symbol id="i-arrow-down" viewBox="0 0 24 24"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></symbol><symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></symbol><symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7"/><path d="M12 19V5"/></symbol><symbol id="i-at-sign" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 0 0 6 0v-1a10 10 0 1 0-4 8"/></symbol><symbol id="i-book-open" viewBox="0 0 24 24"><path d="M12 7v14"/><path d="M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z"/></symbol><symbol id="i-captions" viewBox="0 0 24 24"><rect width="18" height="14" x="3" y="5" rx="2" ry="2"/><path d="M7 15h4M15 15h2M7 11h2M13 11h4"/></symbol><symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol><symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol><symbol id="i-clapperboard" viewBox="0 0 24 24"><path d="m12.296 3.464 3.02 3.956"/><path d="M20.2 6 3 11l-.9-2.4c-.3-1.1.3-2.2 1.3-2.5l13.5-4c1.1-.3 2.2.3 2.5 1.3z"/><path d="M3 11h18v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="m6.18 5.276 3.1 3.899"/></symbol><symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6"/><path d="m8 6-6 6 6 6"/></symbol><symbol id="i-ellipsis-vertical" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1"/><circle cx="12" cy="5" r="1"/><circle cx="12" cy="19" r="1"/></symbol><symbol id="i-eye" viewBox="0 0 24 24"><path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0"/><circle cx="12" cy="12" r="3"/></symbol><symbol id="i-flame" viewBox="0 0 24 24"><path d="M12 3q1 4 4 6.5t3 5.5a1 1 0 0 1-14 0 5 5 0 0 1 1-3 1 1 0 0 0 5 0c0-2-1.5-3-1.5-5q0-2 2.5-4"/></symbol><symbol id="i-hard-drive" viewBox="0 0 24 24"><path d="M10 16h.01"/><path d="M2.212 11.577a2 2 0 0 0-.212.896V18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-5.527a2 2 0 0 0-.212-.896L18.55 5.11A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/><path d="M21.946 12.013H2.054"/><path d="M6 16h.01"/></symbol><symbol id="i-images" viewBox="0 0 24 24"><path d="m22 11-1.296-1.296a2.4 2.4 0 0 0-3.408 0L11 16"/><path d="M4 8a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2"/><circle cx="13" cy="7" r="1" fill="currentColor"/><rect x="8" y="2" width="14" height="14" rx="2"/></symbol><symbol id="i-inbox" viewBox="0 0 24 24"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></symbol><symbol id="i-layout-grid" viewBox="0 0 24 24"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/></symbol><symbol id="i-link" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></symbol><symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol><symbol id="i-maximize-2" viewBox="0 0 24 24"><path d="M15 3h6v6"/><path d="m21 3-7 7"/><path d="m3 21 7-7"/><path d="M9 21H3v-6"/></symbol><symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 5h16"/><path d="M4 12h16"/><path d="M4 19h16"/></symbol><symbol id="i-message-circle" viewBox="0 0 24 24"><path d="M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719"/></symbol><symbol id="i-message-square" viewBox="0 0 24 24"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/></symbol><symbol id="i-minus" viewBox="0 0 24 24"><path d="M5 12h14"/></symbol><symbol id="i-monitor-play" viewBox="0 0 24 24"><path d="M15.033 9.44a.647.647 0 0 1 0 1.12l-4.065 2.352a.645.645 0 0 1-.968-.56V7.648a.645.645 0 0 1 .967-.56z"/><path d="M12 17v4"/><path d="M8 21h8"/><rect x="2" y="3" width="20" height="14" rx="2"/></symbol><symbol id="i-moon" viewBox="0 0 24 24"><path d="M20.985 12.486a9 9 0 1 1-9.473-9.472c.405-.022.617.46.402.803a6 6 0 0 0 8.268 8.268c.344-.215.825-.004.803.401"/></symbol><symbol id="i-palette" viewBox="0 0 24 24"><path d="M12 22a1 1 0 0 1 0-20 10 9 0 0 1 10 9 5 5 0 0 1-5 5h-2.25a1.75 1.75 0 0 0-1.4 2.8l.3.4a1.75 1.75 0 0 1-1.4 2.8z"/><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"/><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"/><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"/><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"/></symbol><symbol id="i-paperclip" viewBox="0 0 24 24"><path d="m16 6-8.414 8.586a2 2 0 0 0 2.829 2.829l8.414-8.586a4 4 0 1 0-5.657-5.657l-8.379 8.551a6 6 0 1 0 8.485 8.485l8.379-8.551"/></symbol><symbol id="i-play" viewBox="0 0 24 24"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></symbol><symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol><symbol id="i-rotate-ccw" viewBox="0 0 24 24"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></symbol><symbol id="i-scissors" viewBox="0 0 24 24"><circle cx="6" cy="6" r="3"/><path d="M8.12 8.12 12 12"/><path d="M20 4 8.12 15.88"/><circle cx="6" cy="18" r="3"/><path d="M14.8 14.8 20 20"/></symbol><symbol id="i-search" viewBox="0 0 24 24"><path d="m21 21-4.34-4.34"/><circle cx="11" cy="11" r="8"/></symbol><symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"/><path d="M20 2v4"/><path d="M22 4h-4"/><circle cx="4" cy="20" r="2"/></symbol><symbol id="i-square-pen" viewBox="0 0 24 24"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z"/></symbol><symbol id="i-star" viewBox="0 0 24 24"><path d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"/></symbol><symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></symbol><symbol id="i-sunrise" viewBox="0 0 24 24"><path d="M12 2v8"/><path d="m4.93 10.93 1.41 1.41"/><path d="M2 18h2"/><path d="M20 18h2"/><path d="m19.07 10.93-1.41 1.41"/><path d="M22 22H2"/><path d="m8 6 4-4 4 4"/><path d="M16 18a4 4 0 0 0-8 0"/></symbol><symbol id="i-tag" viewBox="0 0 24 24"><path d="M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></symbol><symbol id="i-webhook" viewBox="0 0 24 24"><path d="M18 16.98h-5.99c-1.1 0-1.95.94-2.48 1.9A4 4 0 0 1 2 17c.01-.7.2-1.4.57-2"/><path d="m6 17 3.13-5.78c.53-.97.1-2.18-.5-3.1a4 4 0 1 1 6.89-4.06"/><path d="m12 6 3.13 5.73C15.66 12.7 16.9 13 18 13a4 4 0 0 1 0 8"/></symbol><symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol></defs></svg><!--ICONS:END-->
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- S01 header -->
+<header class="hdr" id="top">
+  <div class="container hdr__in">
+    <a class="brand" href="#top" aria-label="Takeline home">
+      <svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6.5" width="13" height="11" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="8.5" y="3.5" width="13" height="11" rx="2.6" fill="currentColor" opacity=".22"/><rect x="8.5" y="3.5" width="13" height="11" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="18.3" cy="6.8" r="1.7" fill="#ff6a3d"/></svg>
+      <span class="brand__word">Takeline</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#board">Product</a>
+      <a href="#bento">Studio</a>
+      <a href="#voices">Customers</a>
+      <a href="#cta">Pricing</a>
+      <a href="#changelog">Changelog</a>
+      <a href="#footer">Contact</a>
+    </nav>
+    <div class="hdr__actions">
+      <span class="hdr__sep" aria-hidden="true"></span>
+      <a class="link-quiet" href="#cta">Log in</a>
+      <a class="btn btn--light btn--sm" href="#cta">Start free</a>
+      <button class="menu-btn" aria-label="Open menu" aria-expanded="false" aria-controls="mnav"><svg class="i"><use href="#i-menu"/></svg></button>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="Mobile">
+    <a href="#board">Product</a><a href="#bento">Studio</a><a href="#voices">Customers</a><a href="#cta">Pricing</a><a href="#changelog">Changelog</a><a href="#footer">Contact</a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- S02 hero -->
+<section class="hero">
+  <div class="hero__bg" aria-hidden="true"><div class="hero__grid"></div><div class="hero__aura"></div></div>
+  <div class="container">
+    <h1 class="hero__title" data-split>Run every AI video project<br> like a real production</h1>
+    <div class="hero__row">
+      <p class="hero__sub" data-reveal>Briefs, prompts, takes and sign-off on one timeline. Built for creators and studios who ship generated video every week.</p>
+      <a class="hero__news" href="#changelog" data-reveal><span class="hero__news-tag">New</span><span>Review 2.0</span><svg class="i i--sm"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+
+  <div class="stage" data-stage>
+    <div class="stage__glow" aria-hidden="true"></div>
+    <div class="app" role="img" aria-label="Takeline app: a shot page with four generated takes, an activity feed and the Director assistant rendering new variations">
+      <!-- sidebar -->
+      <aside class="app__side">
+        <div class="ws"><span class="ws__badge">N</span><span class="ws__name">Northbeam</span><svg class="i i--xs"><use href="#i-chevron-down"/></svg><span class="ws__tools"><svg class="i i--sm"><use href="#i-search"/></svg><span class="ws__new"><svg class="i i--sm"><use href="#i-square-pen"/></svg></span></span></div>
+        <ul class="side-list">
+          <li><svg class="i i--sm"><use href="#i-sun"/></svg>Today</li>
+          <li><svg class="i i--sm"><use href="#i-inbox"/></svg>Inbox<span class="count">3</span></li>
+          <li><svg class="i i--sm"><use href="#i-clapperboard"/></svg>My shots</li>
+          <li><svg class="i i--sm"><use href="#i-eye"/></svg>Reviews</li>
+        </ul>
+        <p class="side-h">Projects <svg class="i i--xs"><use href="#i-chevron-down"/></svg></p>
+        <ul class="side-list">
+          <li class="is-active"><span class="dot" style="--d:var(--c-accent)"></span>Spring drop reel</li>
+          <li><span class="dot" style="--d:var(--c-info)"></span>Founder ad v4</li>
+          <li><span class="dot" style="--d:var(--c-success)"></span>Hollow, music video</li>
+          <li><span class="dot" style="--d:var(--c-warning)"></span>Podcast cutdowns</li>
+        </ul>
+        <p class="side-h">Library <svg class="i i--xs"><use href="#i-chevron-down"/></svg></p>
+        <ul class="side-list">
+          <li><svg class="i i--sm"><use href="#i-book-open"/></svg>Prompt library</li>
+          <li><svg class="i i--sm"><use href="#i-palette"/></svg>Style locks</li>
+          <li><svg class="i i--sm"><use href="#i-images"/></svg>References</li>
+        </ul>
+      </aside>
+      <!-- main -->
+      <div class="app__main">
+        <div class="app__bar">
+          <span class="crumb"><span class="status status--render"></span><b>SH-214</b> Rooftop chase, dusk</span>
+          <svg class="i i--sm star"><use href="#i-star"/></svg>
+          <span class="app__bar-r"><span class="mono-dim">7 / 42</span><svg class="i i--sm"><use href="#i-arrow-up"/></svg><svg class="i i--sm"><use href="#i-arrow-down"/></svg></span>
+        </div>
+        <div class="shot">
+          <div class="shot__head">
+            <h3 class="shot__title">Rooftop chase, dusk</h3>
+            <p class="shot__desc">Handheld, 24 fps feel. Runner crosses two rooftops as the sun drops; keep the <code>ember-dusk</code> style lock and end on a lens flare.</p>
+          </div>
+          <div class="takes">
+            <figure class="take"><div class="frame frame--dusk"></div><figcaption><span>T1</span><span class="mono-dim">0:04</span></figcaption></figure>
+            <figure class="take"><div class="frame frame--dusk2"></div><figcaption><span>T2</span><span class="mono-dim">0:04</span></figcaption></figure>
+            <figure class="take is-pick"><div class="frame frame--dusk3"><span class="pick"><svg class="i i--xs"><use href="#i-check"/></svg>Pick</span></div><figcaption><span>T3</span><span class="mono-dim">0:05</span></figcaption></figure>
+            <figure class="take is-rendering"><div class="frame frame--pending"><span class="spin"></span></div><figcaption><span>T4</span><span class="mono-dim">62%</span></figcaption></figure>
+          </div>
+          <p class="shot__h">Activity</p>
+          <ul class="feed">
+            <li><span class="av av--m">M</span><span><b>Mira</b> attached the storyboard frame <span class="mono-dim">· 6 min ago</span></span></li>
+            <li><svg class="i i--sm"><use href="#i-tag"/></svg><span><b>Auto-tag</b> added <b>Night</b> and <b>Motion</b> <span class="mono-dim">· 5 min ago</span></span></li>
+            <li><span class="av av--j">J</span><span><b>Jun</b> starred <b>T3</b> as the pick <span class="mono-dim">· 2 min ago</span></span></li>
+          </ul>
+        </div>
+      </div>
+      <!-- director -->
+      <div class="director">
+        <div class="director__bar"><span class="director__mark"><svg class="i i--xs"><use href="#i-sparkles"/></svg></span><b>Director</b><span class="chip-mini">auto</span><span class="director__tools"><svg class="i i--xs"><use href="#i-minus"/></svg><svg class="i i--xs"><use href="#i-maximize-2"/></svg><svg class="i i--xs"><use href="#i-x"/></svg></span></div>
+        <div class="bubble">Slow T3 down, keep the flare, and cut a 9:16 for Reels</div>
+        <p class="ctx"><svg class="i i--xs"><use href="#i-clapperboard"/></svg>SH-214 added to context</p>
+        <p class="thinking" data-typer="Rendering 3 variations from T3 with the ember-dusk lock…">Rendering 3 variations from T3 with the ember-dusk lock…</p>
+        <div class="queue">
+          <div class="queue__row"><span>T5 · 0.8× speed</span><span class="bar"><i style="--p:.82"></i></span></div>
+          <div class="queue__row"><span>T6 · 0.7× speed</span><span class="bar"><i style="--p:.54"></i></span></div>
+          <div class="queue__row"><span>T7 · 9:16 crop</span><span class="bar"><i style="--p:.31"></i></span></div>
+        </div>
+        <div class="reply"><span>Reply…</span><span class="reply__tools"><svg class="i i--xs"><use href="#i-paperclip"/></svg><span class="send"><svg class="i i--xs"><use href="#i-arrow-up"/></svg></span></span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- S03 logo wall -->
+<section class="logos" aria-label="Studios using Takeline">
+  <div class="marquee">
+    <div class="marquee__track">
+      <span class="wm wm--1"><svg class="i"><use href="#i-sunrise"/></svg>Northbeam</span>
+      <span class="wm wm--2">Halfmoon Films</span>
+      <span class="wm wm--3">PARALLAX/9</span>
+      <span class="wm wm--4"><svg class="i"><use href="#i-flame"/></svg>kiln studio</span>
+      <span class="wm wm--5">Oddlot</span>
+      <span class="wm wm--6">Vesper&nbsp;&amp;&nbsp;Co</span>
+      <span class="wm wm--7"><svg class="i"><use href="#i-aperture"/></svg>fieldnote</span>
+      <span class="wm wm--1" aria-hidden="true"><svg class="i"><use href="#i-sunrise"/></svg>Northbeam</span>
+      <span class="wm wm--2" aria-hidden="true">Halfmoon Films</span>
+      <span class="wm wm--3" aria-hidden="true">PARALLAX/9</span>
+      <span class="wm wm--4" aria-hidden="true"><svg class="i"><use href="#i-flame"/></svg>kiln studio</span>
+      <span class="wm wm--5" aria-hidden="true">Oddlot</span>
+      <span class="wm wm--6" aria-hidden="true">Vesper&nbsp;&amp;&nbsp;Co</span>
+      <span class="wm wm--7" aria-hidden="true"><svg class="i"><use href="#i-aperture"/></svg>fieldnote</span>
+    </div>
+  </div>
+  <div class="container"><p class="mono-cap">Running the pipeline at <span data-count="1200">1,200</span>+ creator studios</p></div>
+</section>
+
+<!-- S04 statement -->
+<section class="statement">
+  <div class="container">
+    <p class="statement__text" data-words><span class="hi">A film crew for the generative era.</span> Takeline turns a pile of prompts, renders and chat threads into one clear pipeline, so every shot has an owner, a history and a finish line.</p>
+  </div>
+</section>
+
+<!-- S05 principles -->
+<section class="principles">
+  <div class="container principles__grid">
+    <article class="pr" data-reveal>
+      <p class="mono-fig">TAKE 01</p>
+      <svg class="fig" viewBox="0 0 260 220" aria-hidden="true">
+        <g class="draw" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M40 162 L130 207 L220 162"/>
+          <path d="M40 136 L130 181 L220 136" opacity=".8"/>
+          <path d="M40 110 L130 155 L220 110" opacity=".65"/>
+          <path d="M40 84 L130 129 L220 84 L130 39 Z"/>
+          <path d="M40 84 V162 M220 84 V162 M130 129 V207" opacity=".55"/>
+          <path d="M96 84 L130 101 L164 84 L130 67 Z"/>
+          <path d="M112 84 L130 93 L148 84" opacity=".6"/>
+          <circle cx="130" cy="84" r="3" class="fig__dot"/>
+        </g>
+      </svg>
+      <h3 class="pr__t">Shot-first</h3>
+      <p class="pr__d">Everything is organised around the shot, not the file. Prompts, references and every render stay attached to it.</p>
+    </article>
+    <article class="pr" data-reveal>
+      <p class="mono-fig">TAKE 02</p>
+      <svg class="fig" viewBox="0 0 260 220" aria-hidden="true">
+        <g class="draw" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M70 70 L100 55 L130 70 L100 85 Z M70 70 v34 l30 15 l30 -15 v-34 M100 85 v34"/>
+          <path d="M160 70 L190 55 L220 70 L190 85 Z M160 70 v34 l30 15 l30 -15 v-34 M190 85 v34"/>
+          <path d="M115 140 L145 125 L175 140 L145 155 Z M115 140 v34 l30 15 l30 -15 v-34 M145 155 v34"/>
+          <path d="M100 119 L145 140 M190 119 L145 140" stroke-dasharray="3 3"/>
+          <path d="M130 87 L160 87" stroke-dasharray="3 3"/>
+          <circle cx="145" cy="140" r="3" class="fig__dot"/>
+        </g>
+      </svg>
+      <h3 class="pr__t">Any model, one history</h3>
+      <p class="pr__d">Bring the generators you already pay for. Swap models per shot without losing a single seed or note.</p>
+    </article>
+    <article class="pr" data-reveal>
+      <p class="mono-fig">TAKE 03</p>
+      <svg class="fig" viewBox="0 0 260 220" aria-hidden="true">
+        <g class="draw" fill="none" stroke="currentColor" stroke-width="1">
+          <path d="M30 170 L230 170" opacity=".5"/>
+          <path d="M44 170 v-20 M62 170 v-34 M80 170 v-26 M98 170 v-52 M116 170 v-40 M134 170 v-74 M152 170 v-58 M170 170 v-96 M188 170 v-80 M206 170 v-120"/>
+          <path d="M44 150 L62 136 L80 144 L98 118 L116 130 L134 96 L152 112 L170 74 L188 90 L206 50" stroke-dasharray="3 3" opacity=".7"/>
+          <circle cx="206" cy="50" r="3" class="fig__dot"/>
+          <path d="M30 186 h200" stroke-dasharray="1 6" opacity=".6"/>
+        </g>
+      </svg>
+      <h3 class="pr__t">Review at speed</h3>
+      <p class="pr__d">Frame-accurate notes and one-key approvals keep a forty-shot reel moving on deadline day.</p>
+    </article>
+  </div>
+</section>
+
+<!-- S06 chapter 1: brief and board -->
+<section class="chapter" id="board">
+  <div class="container split">
+    <h2 class="h2" data-reveal>Brief<br> and board</h2>
+    <div data-reveal>
+      <p class="lede">Turn a client brief into a shot list in minutes. Takeline breaks the script into scenes, drafts a prompt for every shot and keeps the references pinned where the whole crew can see them.</p>
+      <a class="more" href="#board">See the board <svg class="i i--sm"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="scene scene--board" data-reveal>
+      <div class="brief">
+        <div class="brief__bar"><svg class="i i--sm"><use href="#i-message-square"/></svg><b>Brief</b><span class="mono-dim">#spring-drop</span><svg class="i i--sm brief__more"><use href="#i-ellipsis-vertical"/></svg></div>
+        <div class="msg"><span class="av av--a">A</span><div><p class="msg__h"><b>Ana</b> <span class="mono-dim">9:41</span></p><p>Client wants 30 s for the spring drop. Three looks: city at dusk, a desert road, neon rain.</p></div></div>
+        <div class="msg"><span class="av av--j">J</span><div><p class="msg__h"><b>Jun</b> <span class="mono-dim">9:43</span></p><p>Same runner in all three. Keep the jacket orange so it reads on a phone.</p></div></div>
+        <div class="composer"><span class="mention">@Takeline</span> break this into shots and draft prompts<span class="caret"></span>
+          <div class="composer__tools"><svg class="i i--sm"><use href="#i-plus"/></svg><svg class="i i--sm"><use href="#i-paperclip"/></svg><svg class="i i--sm"><use href="#i-at-sign"/></svg><span class="send send--accent"><svg class="i i--xs"><use href="#i-arrow-up"/></svg></span></div>
+        </div>
+      </div>
+      <div class="kanban">
+        <div class="col">
+          <p class="col__h"><span class="status status--todo"></span>Scripted <span class="mono-dim">12</span></p>
+          <div class="card" data-card><p class="mono-dim">SH-201</p><p class="card__t">Cold open, neon alley</p><p class="tags"><span class="tag"><i style="--d:var(--c-accent)"></i>Hero</span><span class="tag">16:9</span></p></div>
+          <div class="card" data-card><p class="mono-dim">SH-205</p><p class="card__t">Close-up, rain on jacket</p><p class="tags"><span class="tag"><i style="--d:var(--c-info)"></i>Insert</span></p></div>
+          <div class="card card--ghost" data-card><p class="mono-dim">SH-209</p><p class="card__t">Desert road, wide</p><p class="tags"><span class="tag">9:16</span></p></div>
+        </div>
+        <div class="col">
+          <p class="col__h"><span class="status status--prompt"></span>Prompting <span class="mono-dim">5</span></p>
+          <div class="card" data-card><p class="mono-dim">SH-211</p><p class="card__t">Runner drops off the ledge</p><p class="tags"><span class="tag"><i style="--d:var(--c-warning)"></i>Motion</span><span class="tag">3 refs</span></p></div>
+          <div class="card" data-card><p class="mono-dim">SH-212</p><p class="card__t">Skyline push-in at golden hour</p><p class="tags"><span class="tag"><i style="--d:var(--c-accent)"></i>Hero</span></p></div>
+        </div>
+        <div class="col">
+          <p class="col__h"><span class="status status--render"></span>Rendering <span class="mono-dim">3</span></p>
+          <div class="card" data-card><p class="mono-dim">SH-214</p><p class="card__t">Rooftop chase, dusk</p><p class="tags"><span class="tag"><i style="--d:var(--c-success)"></i>4 takes</span><span class="tag tag--prog"><span class="bar"><i style="--p:.62"></i></span></span></p></div>
+          <div class="card" data-card><p class="mono-dim">SH-216</p><p class="card__t">Puddle reflection, neon</p><p class="tags"><span class="tag">2 takes</span></p></div>
+        </div>
+        <div class="col col--fade">
+          <p class="col__h"><span class="status status--done"></span>Approved <span class="mono-dim">9</span></p>
+          <div class="card" data-card><p class="mono-dim">SH-198</p><p class="card__t">Logo sting</p><p class="tags"><span class="tag">Client OK</span></p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container split split--list">
+    <p class="list-label">Features</p>
+    <div class="feat-cols">
+      <ul class="feat"><li>Script breakdown<svg class="i i--xs"><use href="#i-plus"/></svg></li><li>Prompt library<svg class="i i--xs"><use href="#i-plus"/></svg></li><li>Reference boards<svg class="i i--xs"><use href="#i-plus"/></svg></li></ul>
+      <ul class="feat"><li>Shot templates<svg class="i i--xs"><use href="#i-plus"/></svg></li><li>Style locks<svg class="i i--xs"><use href="#i-plus"/></svg></li><li>Client intake<svg class="i i--xs"><use href="#i-plus"/></svg></li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- S07 chapter 2: generate and compare -->
+<section class="chapter" id="generate">
+  <div class="container split">
+    <h2 class="h2" data-reveal>Generate<br> and compare</h2>
+    <div data-reveal>
+      <p class="lede">Send the same shot to several models, then line the takes up side by side. Scrub them in sync, star the keeper, and the rest fold away with their seeds intact.</p>
+      <a class="more" href="#generate">How runs work <svg class="i i--sm"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="scene scene--compare" data-reveal>
+      <div class="compare">
+        <div class="compare__bar"><svg class="i i--sm"><use href="#i-layout-grid"/></svg><span>SH-212 · Skyline push-in</span><span class="mono-dim">4 takes · 3 models</span><span class="compare__sync"><svg class="i i--xs"><use href="#i-link"/></svg>Synced</span></div>
+        <div class="compare__grid">
+          <figure class="ctake"><div class="frame frame--sky1"><span class="ph"></span></div><figcaption><span class="model">Aurora v3</span><span class="mono-dim">seed 4127</span></figcaption></figure>
+          <figure class="ctake is-pick"><div class="frame frame--sky2"><span class="ph"></span><span class="pick"><svg class="i i--xs"><use href="#i-star"/></svg>Keeper</span></div><figcaption><span class="model">Drift XL</span><span class="mono-dim">seed 0981</span></figcaption></figure>
+          <figure class="ctake"><div class="frame frame--sky3"><span class="ph"></span></div><figcaption><span class="model">Lumen 2</span><span class="mono-dim">seed 3310</span></figcaption></figure>
+          <figure class="ctake"><div class="frame frame--sky4"><span class="ph"></span></div><figcaption><span class="model">Aurora v3</span><span class="mono-dim">seed 5562</span></figcaption></figure>
+        </div>
+        <div class="scrub"><span class="scrub__btn"><svg class="i i--xs"><use href="#i-play"/></svg></span><span class="mono-dim">00:01:12</span><div class="scrub__track"><span class="scrub__fill"></span><span class="scrub__head"></span></div><span class="mono-dim">00:05:00</span></div>
+      </div>
+      <div class="credits">
+        <p class="credits__h">Credits this week</p>
+        <p class="credits__n"><span data-count="1840">1,840</span><span class="mono-dim"> / 3,000</span></p>
+        <div class="bars" aria-hidden="true">
+          <i style="--h:.32"></i><i style="--h:.48"></i><i style="--h:.4"></i><i style="--h:.66"></i><i style="--h:.58"></i><i style="--h:.84"></i><i style="--h:.7" class="is-now"></i>
+        </div>
+        <div class="bars__x mono-dim"><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span><span>S</span></div>
+        <ul class="legend">
+          <li><i style="--d:var(--c-accent)"></i>Aurora v3<span class="mono-dim">46%</span></li>
+          <li><i style="--d:var(--c-accent-2)"></i>Drift XL<span class="mono-dim">33%</span></li>
+          <li><i style="--d:var(--c-info)"></i>Lumen 2<span class="mono-dim">21%</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="container split split--list">
+    <p class="list-label">Features</p>
+    <div class="feat-cols">
+      <ul class="feat"><li>Multi-model runs<svg class="i i--xs"><use href="#i-plus"/></svg></li><li>Synced scrubbing<svg class="i i--xs"><use href="#i-plus"/></svg></li><li>Seed history<svg class="i i--xs"><use href="#i-plus"/></svg></li></ul>
+      <ul class="feat"><li>Credit tracking<svg class="i i--xs"><use href="#i-plus"/></svg></li><li>Batch re-renders<svg class="i i--xs"><use href="#i-plus"/></svg></li><li>Upscale queue<svg class="i i--xs"><use href="#i-plus"/></svg></li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- S08 chapter 3: review and deliver -->
+<section class="chapter" id="review">
+  <div class="container split">
+    <h2 class="h2" data-reveal>Review<br> and deliver</h2>
+    <div data-reveal>
+      <p class="lede">Clients leave notes on the exact frame, not in an email thread. Versions, sign-off and an export for every platform all ship from the same place.</p>
+      <a class="more" href="#review">Try a guest review <svg class="i i--sm"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+  <div class="container">
+    <div class="scene scene--review" data-reveal>
+      <div class="player">
+        <div class="player__bar"><svg class="i i--sm"><use href="#i-monitor-play"/></svg><span>Spring drop reel</span><span class="vchip">v6</span><span class="mono-dim player__r">Guest link · 2 viewers</span></div>
+        <div class="player__screen">
+          <div class="frame frame--neon"></div>
+          <div class="pin" style="--x:.62;--y:.38"><span class="av av--a">A</span><div class="pin__note"><b>Ana</b> Hold this frame 6 more, it's the money shot</div></div>
+          <div class="player__tc mono-dim">00:00:14:06</div>
+        </div>
+        <div class="tl">
+          <div class="tl__clips"><i style="--w:14"></i><i style="--w:9"></i><i style="--w:18" class="is-on"></i><i style="--w:11"></i><i style="--w:16"></i><i style="--w:12"></i><i style="--w:20"></i></div>
+          <span class="tl__mark" style="--x:.12"></span><span class="tl__mark" style="--x:.47"></span><span class="tl__mark tl__mark--hot" style="--x:.5"></span><span class="tl__mark" style="--x:.83"></span>
+          <span class="tl__head"></span>
+        </div>
+      </div>
+      <div class="notes">
+        <p class="notes__h">Notes <span class="mono-dim">4 open</span></p>
+        <div class="note is-hot"><span class="av av--a">A</span><div><p><b>Ana</b> <span class="mono-dim">00:14:06</span></p><p>Hold this frame 6 more, it's the money shot</p></div></div>
+        <div class="note"><span class="av av--c">C</span><div><p><b>Client</b> <span class="mono-dim">00:07:20</span></p><p>Logo a touch bigger on the end card</p></div></div>
+        <div class="note is-done"><span class="av av--j">J</span><div><p><b>Jun</b> <span class="mono-dim">00:02:11</span></p><p>Swapped T3 in. Resolved</p></div></div>
+        <p class="notes__h notes__h--x">Exports</p>
+        <div class="exports">
+          <span class="exp is-done"><svg class="i i--xs"><use href="#i-check"/></svg>9:16 Reels</span>
+          <span class="exp is-done"><svg class="i i--xs"><use href="#i-check"/></svg>1:1 Feed</span>
+          <span class="exp is-run"><span class="spin spin--xs"></span>16:9 Web</span>
+          <span class="exp"><svg class="i i--xs"><use href="#i-captions"/></svg>Captions</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container split split--list">
+    <p class="list-label">Features</p>
+    <div class="feat-cols">
+      <ul class="feat"><li>Frame notes<svg class="i i--xs"><use href="#i-plus"/></svg></li><li>Version stacks<svg class="i i--xs"><use href="#i-plus"/></svg></li><li>Guest review links<svg class="i i--xs"><use href="#i-plus"/></svg></li></ul>
+      <ul class="feat"><li>Platform exports<svg class="i i--xs"><use href="#i-plus"/></svg></li><li>Caption pass<svg class="i i--xs"><use href="#i-plus"/></svg></li><li>Delivery log<svg class="i i--xs"><use href="#i-plus"/></svg></li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- S09 bento -->
+<section class="chapter bento-sec" id="bento">
+  <div class="container split">
+    <h2 class="h2" data-reveal>Made for<br> the edit bay</h2>
+    <div data-reveal><p class="lede">The small things a busy studio feels every day: fast keys, honest queues, locked looks and an open API for everything else.</p></div>
+  </div>
+  <div class="container bento">
+    <article class="tile tile--wide" data-reveal>
+      <div class="tile__vis">
+        <div class="cmdk">
+          <div class="cmdk__in"><svg class="i i--sm"><use href="#i-search"/></svg><span class="cmdk__q" data-typer="re-render rooftop at 0.8x">re-render rooftop at 0.8x</span><span class="kbd">esc</span></div>
+          <ul class="cmdk__list">
+            <li class="is-on"><svg class="i i--sm"><use href="#i-rotate-ccw"/></svg>Re-render SH-214 · 0.8× speed<span class="kbd">↵</span></li>
+            <li><svg class="i i--sm"><use href="#i-clapperboard"/></svg>Open SH-214 Rooftop chase</li>
+            <li><svg class="i i--sm"><use href="#i-palette"/></svg>Apply style lock: ember-dusk</li>
+          </ul>
+        </div>
+      </div>
+      <h3 class="tile__t">Everything is one keystroke away</h3>
+      <p class="tile__d">Open any shot, run any action, re-render with new settings from the command bar.</p>
+    </article>
+    <article class="tile" data-reveal>
+      <div class="tile__vis tile__vis--keys">
+        <span class="key key--ok">A<small>approve</small></span><span class="key">R<small>redo</small></span><span class="key">N<small>note</small></span>
+      </div>
+      <h3 class="tile__t">One-key approvals</h3>
+      <p class="tile__d">Clear forty takes before lunch without touching the mouse.</p>
+    </article>
+    <article class="tile" data-reveal>
+      <div class="tile__vis">
+        <ul class="rq">
+          <li><span class="status status--render"></span>SH-214 / T5<span class="bar"><i style="--p:.82"></i></span></li>
+          <li><span class="status status--render"></span>SH-216 / T3<span class="bar"><i style="--p:.45"></i></span></li>
+          <li><span class="status status--todo"></span>SH-209 / T1<span class="mono-dim">queued</span></li>
+          <li><span class="status status--done"></span>SH-212 / T4<span class="mono-dim">0:42</span></li>
+        </ul>
+      </div>
+      <h3 class="tile__t">An honest render queue</h3>
+      <p class="tile__d">Live progress, real ETAs and a retry that keeps the seed.</p>
+    </article>
+    <article class="tile" data-reveal>
+      <div class="tile__vis tile__vis--swatch">
+        <div class="swatches"><i style="--c:#2a1424"></i><i style="--c:#8c3a2b"></i><i style="--c:#e0763c"></i><i style="--c:#f6c07a"></i><i style="--c:#fde9cf"></i></div>
+        <p class="lock"><svg class="i i--xs"><use href="#i-lock"/></svg>ember-dusk · grain 12 · 35mm</p>
+      </div>
+      <h3 class="tile__t">Style locks</h3>
+      <p class="tile__d">Pin a palette, lens and grain to a project so every take matches.</p>
+    </article>
+    <article class="tile" data-reveal>
+      <div class="tile__vis tile__vis--chart">
+        <svg viewBox="0 0 240 90" class="spark" aria-hidden="true"><defs><linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff6a3d" stop-opacity=".35"/><stop offset="1" stop-color="#ff6a3d" stop-opacity="0"/></linearGradient></defs><path d="M0 70 L30 62 L60 66 L90 48 L120 52 L150 34 L180 38 L210 20 L240 14 L240 90 L0 90 Z" fill="url(#sg)"/><path class="spark__line" d="M0 70 L30 62 L60 66 L90 48 L120 52 L150 34 L180 38 L210 20 L240 14" fill="none" stroke="#ff6a3d" stroke-width="1.6"/></svg>
+        <p class="spark__n"><b>3.4×</b> <span class="mono-dim">shots shipped per editor</span></p>
+      </div>
+      <h3 class="tile__t">Studio insights</h3>
+      <p class="tile__d">See where shots stall, which models earn their credits, and who needs a hand.</p>
+    </article>
+    <article class="tile tile--full" data-reveal>
+      <div class="tile__vis tile__vis--hub">
+        <div class="hub">
+          <span class="hub__n" style="--x:0px;--y:-72px"><svg class="i"><use href="#i-hard-drive"/></svg></span>
+          <span class="hub__n" style="--x:124px;--y:-22px"><svg class="i"><use href="#i-message-circle"/></svg></span>
+          <span class="hub__n" style="--x:76px;--y:58px"><svg class="i"><use href="#i-scissors"/></svg></span>
+          <span class="hub__n" style="--x:-76px;--y:58px"><svg class="i"><use href="#i-webhook"/></svg></span>
+          <span class="hub__n" style="--x:-124px;--y:-22px"><svg class="i"><use href="#i-code"/></svg></span>
+          <span class="hub__core"><svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6.5" width="13" height="11" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="8.5" y="3.5" width="13" height="11" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="18.3" cy="6.8" r="1.7" fill="#ff6a3d"/></svg></span>
+        </div>
+      </div>
+      <div class="tile__copy"><h3 class="tile__t">Fits the tools you already use</h3>
+      <p class="tile__d">Storage, team chat, your editor of choice and anything else through webhooks and an open API.</p></div>
+    </article>
+  </div>
+</section>
+
+<!-- S10 changelog -->
+<section class="chapter changelog" id="changelog">
+  <div class="container">
+    <h2 class="h2" data-reveal>Changelog</h2>
+    <div class="cl">
+      <span class="cl__line" aria-hidden="true"></span>
+      <article class="cl__item" data-reveal><span class="cl__dot is-new"></span><h3 class="cl__t">Review 2.0: notes that follow the frame</h3><p class="cl__d">Notes now stick to the moving subject, so a re-render keeps every comment in place.</p><p class="mono-date">OCT 1, 2026</p></article>
+      <article class="cl__item" data-reveal><span class="cl__dot"></span><h3 class="cl__t">Style locks for whole projects</h3><p class="cl__d">Set a palette, lens and grain once and every new shot inherits it.</p><p class="mono-date">SEP 22, 2026</p></article>
+      <article class="cl__item" data-reveal><span class="cl__dot"></span><h3 class="cl__t">Batch re-render from the board</h3><p class="cl__d">Select twenty cards, change one setting, and queue them in a single pass.</p><p class="mono-date">SEP 9, 2026</p></article>
+      <article class="cl__item" data-reveal><span class="cl__dot"></span><h3 class="cl__t">Credit alerts per client</h3><p class="cl__d">Get a ping before a project burns past the budget you agreed.</p><p class="mono-date">AUG 27, 2026</p></article>
+    </div>
+    <a class="more more--solo" href="#changelog">Every update <svg class="i i--sm"><use href="#i-arrow-right"/></svg></a>
+  </div>
+</section>
+
+<!-- S11 voices -->
+<section class="voices" id="voices">
+  <div class="container">
+    <div class="quotes">
+      <figure class="quote quote--warm" data-reveal>
+        <div class="quote__art" aria-hidden="true"></div>
+        <blockquote>“We went from a shared doc of 300 prompts to a board the whole team trusts. A 30-second spot now takes us two days, not a week.”</blockquote>
+        <figcaption><span class="quote__mark"><svg class="i"><use href="#i-moon"/></svg></span><span><b>Ana Rios</b><br>Head of Production, Halfmoon Films</span></figcaption>
+      </figure>
+      <figure class="quote quote--ember" data-reveal>
+        <blockquote>“Side-by-side takes changed how we pick. Nobody argues from memory anymore.”</blockquote>
+        <figcaption><span class="quote__mark"><svg class="i"><use href="#i-flame"/></svg></span><span><b>Dev Malhotra</b><br>Creative Director, Kiln Studio</span></figcaption>
+      </figure>
+    </div>
+    <div class="voices__foot">
+      <p>Takeline runs the pipeline for <b><span data-count="1200">1,200</span>+</b> studios, from solo creators to agency floors.</p>
+      <a class="more" href="#voices">Studio stories <svg class="i i--sm"><use href="#i-arrow-right"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- S12 cta -->
+<section class="cta" id="cta">
+  <div class="cta__glow" aria-hidden="true"></div>
+  <div class="container cta__in">
+    <h2 class="cta__t" data-reveal>Your next reel starts<br> on one timeline.</h2>
+    <div class="cta__btns" data-reveal>
+      <a class="btn btn--light" href="#top">Start free</a>
+      <a class="btn btn--dark" href="#footer">Book a demo</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- S13 footer -->
+<footer class="ftr" id="footer">
+  <div class="container ftr__grid">
+    <a class="brand brand--foot" href="#top" aria-label="Takeline home"><svg class="brand__mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="2.5" y="6.5" width="13" height="11" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><rect x="8.5" y="3.5" width="13" height="11" rx="2.6" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="18.3" cy="6.8" r="1.7" fill="#ff6a3d"/></svg></a>
+    <div class="ftr__col"><h3>Product</h3><a href="#board">Board</a><a href="#generate">Generate</a><a href="#review">Review</a><a href="#review">Deliver</a><a href="#cta">Pricing</a></div>
+    <div class="ftr__col"><h3>Features</h3><a href="#board">Script breakdown</a><a href="#generate">Multi-model runs</a><a href="#review">Frame notes</a><a href="#bento">Style locks</a><a href="#bento">API</a></div>
+    <div class="ftr__col"><h3>Company</h3><a href="#top">About</a><a href="#voices">Customers</a><a href="#top">Careers</a><a href="#changelog">Changelog</a></div>
+    <div class="ftr__col"><h3>Resources</h3><a href="#top">Docs</a><a href="#top">Templates</a><a href="#top">Community</a><a href="#top">Status</a></div>
+    <div class="ftr__col"><h3>Connect</h3><a href="#top">Contact us</a><a href="#top">Newsletter</a><a href="#top">Events</a></div>
+  </div>
+  <div class="container ftr__legal">
+    <a href="#top">Privacy</a><a href="#top">Terms</a><a href="#top">Security</a>
+    <p class="ftr__note">Takeline is a fictional product, made as a design-system study. Studios and people on this page are invented.</p>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="js/site.js" defer></script>
+</body>
+</html>

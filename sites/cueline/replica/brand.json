@@ -1,0 +1,6 @@
+{
+  "name": "Cueline",
+  "avoid": ["Stripe", "Stripe Atlas", "Stripe Sigma", "Stripe Radar", "Stripe Press", "Stripe Sessions", "sohne", "Söhne", "Roastery", "Zenflow", "Daybreak Yoga", "billionth", "financial infrastructure", "economic infrastructure", "backbone of global commerce", "Global GDP running on"],
+  "domains": ["stripe.com", "stripe.dev", "stripecdn.com", "stripe.network"],
+  "colors": ["#533afd", "#635bff", "#061b31", "#0a2540", "#64748d", "#50617a", "#ff6118", "#e5edf5", "#f8fafd", "#0d1738", "#81b81a"]
+}

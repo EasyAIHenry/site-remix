@@ -1,0 +1,48 @@
+{
+  "mode": "layout",
+  "original": {
+    "width": 1440,
+    "height": 900
+  },
+  "clone": {
+    "width": 1440,
+    "height": 900
+  },
+  "compared_at": {
+    "width": 480,
+    "height": 300
+  },
+  "height_delta_pct": 0.0,
+  "score": 36.4,
+  "verdict": "different",
+  "regions": [
+    {
+      "x": 0,
+      "y": 240,
+      "w": 1440,
+      "h": 660,
+      "cells": 45,
+      "where": "middle centre"
+    },
+    {
+      "x": 360,
+      "y": 120,
+      "w": 120,
+      "h": 120,
+      "cells": 1,
+      "where": "top left"
+    },
+    {
+      "x": 1080,
+      "y": 720,
+      "w": 120,
+      "h": 120,
+      "cells": 1,
+      "where": "bottom right"
+    }
+  ],
+  "files": {
+    "original": "../recon/sections/chapter.png",
+    "clone": "../build/r8/sections/chapter.png"
+  }
+}

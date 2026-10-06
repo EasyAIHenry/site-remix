@@ -1,0 +1,24 @@
+feature,area,priority,original,clone,notes
+Sticky nav with menu items CTA and sign-in,S01 nav,must,yes,yes,
+Mobile nav collapses to a menu button with a panel,S01 nav,must,yes,yes,
+Animated diagonal gradient art in the hero,S02 hero,must,yes,yes,own WebGL shader in assets/js/ribbon.js
+Live counter line above the headline,S02 hero,should,yes,yes,"payout ticker, pauses off-screen"
+Two-tone display headline (claim + muted continuation),S02 hero,must,yes,yes,
+Primary + secondary CTA pair,S02 hero,must,yes,yes,
+Logo strip of trusted-by marks,S03 logos,must,yes,yes,7 made-up marks; marquee on mobile
+Bento grid of product cards with UI pictures built in HTML,S04 bento,must,yes,yes,
+Expand button on each bento card,S04 bento,could,yes,partial,visual only; no expanded modal
+Full-bleed dark band with big stats row,S06 stats,must,yes,yes,
+Count-up numbers when stats enter the screen,S06 stats,should,yes,yes,
+Split header (heading left / paragraph right / CTA),S07 segments,should,yes,yes,
+Story cards with metrics,S07 segments,should,yes,yes,
+Icon feature list (line icon + bold lead-in + muted text + link),S07 segments,should,yes,yes,
+Developer section with code editor card,S08 developers,must,yes,yes,
+Integration diagram around a central node,S08 developers,could,yes,yes,SVG lines + pills
+Final CTA block with two icon links,S10 cta,must,yes,yes,
+Dense footer link columns on a pale surface,S11 footer,must,yes,yes,
+Full-height hairline frame grid,layout,should,yes,yes,hidden under 900px like the original
+Carousel of news cards with arrow buttons,S09 news,could,yes,no,left out to keep the page short for the reel
+Event promo card with real speaker video,S05 promo,could,yes,skip,their event and their speaker; not ours to rebuild
+Customer logos and case-study photos,S07 segments,should,yes,skip,real companies' marks and photos are not ours
+Book of the week editorial block,S09 news,could,yes,skip,their editorial content

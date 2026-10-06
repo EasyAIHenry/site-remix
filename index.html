@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>site-remix</title>
+<meta name="description" content="Two websites Claude built on the design systems of Linear and Stripe, with new brands.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0b0b0d; --card:#141418; --line:#2a2a31; --text:#f4f4f6; --muted:#a1a1ab; --accent:#ff6a3d; }
+  * { box-sizing: border-box; margin: 0; }
+  body { background: var(--bg); color: var(--text); font: 16px/1.6 Inter, system-ui, sans-serif; min-height: 100vh; display: grid; place-items: center; padding: 48px 16px; }
+  main { width: 100%; max-width: 880px; }
+  h1 { font-size: clamp(32px, 6vw, 56px); line-height: 1.05; letter-spacing: -.03em; font-weight: 600; }
+  p.lede { color: var(--muted); margin: 16px 0 40px; max-width: 560px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+  a.card { display: block; text-decoration: none; color: inherit; background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 28px; transition: border-color .2s, transform .2s; }
+  a.card:hover, a.card:focus-visible { border-color: var(--accent); transform: translateY(-2px); outline: none; }
+  .k { font-size: 12px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); }
+  .n { font-size: 28px; font-weight: 600; margin: 8px 0 6px; letter-spacing: -.02em; }
+  .d { color: var(--muted); font-size: 15px; }
+  .go { margin-top: 20px; color: var(--accent); font-weight: 500; }
+  footer { margin-top: 40px; color: var(--muted); font-size: 14px; }
+  footer a { color: var(--text); }
+</style>
+</head>
+<body>
+<main>
+  <h1>Same Claude.<br>Two sites that don't look like Claude.</h1>
+  <p class="lede">Each one studies the design system of a great homepage, then builds a new brand on it. New name, new words, new colours, nothing of theirs left.</p>
+  <div class="grid">
+    <a class="card" href="sites/takeline/">
+      <div class="k">Studied: Linear's system</div>
+      <div class="n">Takeline</div>
+      <div class="d">A production tool for AI-video teams. Dark, precise, lit product UI.</div>
+      <div class="go">Open site →</div>
+    </a>
+    <a class="card" href="sites/cueline/">
+      <div class="k">Studied: Stripe's system</div>
+      <div class="n">Cueline</div>
+      <div class="d">Brand-deal payouts for creators. Moving gradient, framed grid, bento cards.</div>
+      <div class="go">Open site →</div>
+    </a>
+  </div>
+  <footer>How it's done, step by step: <a href="https://github.com/EasyAIHenry/site-remix">the guide and the skill</a>. Both products are made up.</footer>
+</main>
+</body>
+</html>

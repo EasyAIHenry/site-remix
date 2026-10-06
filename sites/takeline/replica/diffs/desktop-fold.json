@@ -1,0 +1,72 @@
+{
+  "mode": "layout",
+  "original": {
+    "width": 1440,
+    "height": 900
+  },
+  "clone": {
+    "width": 1440,
+    "height": 900
+  },
+  "compared_at": {
+    "width": 480,
+    "height": 300
+  },
+  "height_delta_pct": 0.0,
+  "score": 56.8,
+  "verdict": "partly",
+  "regions": [
+    {
+      "x": 360,
+      "y": 360,
+      "w": 1080,
+      "h": 540,
+      "cells": 19,
+      "where": "bottom centre"
+    },
+    {
+      "x": 0,
+      "y": 480,
+      "w": 360,
+      "h": 240,
+      "cells": 4,
+      "where": "middle left"
+    },
+    {
+      "x": 600,
+      "y": 360,
+      "w": 360,
+      "h": 120,
+      "cells": 3,
+      "where": "middle centre"
+    },
+    {
+      "x": 360,
+      "y": 480,
+      "w": 240,
+      "h": 120,
+      "cells": 2,
+      "where": "middle left"
+    },
+    {
+      "x": 0,
+      "y": 240,
+      "w": 120,
+      "h": 120,
+      "cells": 1,
+      "where": "top left"
+    },
+    {
+      "x": 600,
+      "y": 600,
+      "w": 120,
+      "h": 120,
+      "cells": 1,
+      "where": "bottom centre"
+    }
+  ],
+  "files": {
+    "original": "../recon/desktop-fold.png",
+    "clone": "../build/r8/desktop-fold.png"
+  }
+}
