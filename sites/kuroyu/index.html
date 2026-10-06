@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kuroyu 黒湯 · Tonkotsu in Keong Saik</title>
+<meta name="description" content="Kuroyu is an eight-seat tonkotsu counter in Keong Saik, Singapore. Every bowl takes eighteen hours. Open Tuesday to Sunday, 6pm to 2am. A concept by Henry Chua.">
+<meta name="theme-color" content="#0a0807">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 rx=%2714%27 fill=%27%230a0807%27/%3E%3Ccircle cx=%2732%27 cy=%2734%27 r=%2716%27 fill=%27none%27 stroke=%27%23dba54f%27 stroke-width=%274%27/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500&text=%E9%BB%92%E6%B9%AF%E8%B5%A4%E5%A1%A9&display=swap">
+<link rel="preload" as="image" href="assets/frames/build-d/035.webp" media="(min-width: 761px)" fetchpriority="high">
+<link rel="preload" as="image" href="assets/frames/build-m/035.webp" media="(max-width: 760px)" fetchpriority="high">
+<link rel="stylesheet" href="css/site.css">
+<script>
+  // Motion mode is opt-in: no JS or reduced motion gets the plain, readable page.
+  (function (h) {
+    var rm = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    h.classList.add(rm ? 'rm' : 'motion');
+  })(document.documentElement);
+</script>
+</head>
+<body>
+<a class="skip" href="#close">Skip to booking</a>
+<div class="grain" aria-hidden="true"></div>
+
+<header class="top">
+  <a class="mark" href="#top"><span class="mark__jp" lang="ja">黒湯</span><span class="mark__en">Kuroyu</span></a>
+  <a class="top__book" href="#close">Book a seat</a>
+</header>
+
+<div class="clock" aria-hidden="true">
+  <span class="clock__t">08:00</span>
+  <span class="clock__c">Eighteen hours</span>
+</div>
+
+<main id="top">
+
+  <!-- ACT 1 · One bowl, 08:00 to 23:42. The build clip, then the lift clip, on one canvas. -->
+  <section class="act act--bowl" id="bowl" data-d="1250" aria-label="One bowl, built as you scroll">
+    <div class="stage">
+      <canvas class="film" aria-hidden="true"></canvas>
+      <div class="glow" aria-hidden="true"></div>
+      <div class="steam" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <svg class="leaders" aria-hidden="true"></svg>
+
+      <img class="still still--bowl" src="assets/img/start.webp" alt="A finished bowl of tonkotsu ramen on a dark wood counter: milky broth, a soft egg, two slices of torched chashu, negi and a sheet of nori." width="1800" height="1018">
+
+      <div class="copy copy--intro">
+        <h1 class="h1"><span class="ln"><span>Every bowl here</span></span> <span class="ln"><span>takes eighteen hours.</span></span></h1>
+        <p class="sub">You'll finish it in eight minutes.</p>
+      </div>
+
+      <p class="cue" aria-hidden="true"><span>Scroll to pour</span></p>
+
+      <ol class="log" aria-label="One bowl, from the morning to the counter">
+        <li class="log__i" data-at="1.75"  data-part="925,600"><time>08:00</time><span>Bones in.</span></li>
+        <li class="log__i" data-at="3.25"  data-part="690,650"><time>14:00</time><span>The broth turns white.</span></li>
+        <li class="log__i" data-at="4.0"   data-part="830,660"><time>21:30</time><span>Noodles cut fresh.</span></li>
+        <li class="log__i" data-at="5.0"   data-part="700,505"><time>23:38</time><span>Egg, 6 min 30 s.</span></li>
+        <li class="log__i" data-at="5.625" data-part="1110,600"><time>23:38</time><span>Chashu, torched.</span></li>
+        <li class="log__i" data-at="6.5"   data-part="885,445"><time>23:39</time><span>Negi. Nori.</span></li>
+        <li class="log__i log__i--end" data-at="7.75" data-part=""><time>23:40</time><span>Served.</span></li>
+      </ol>
+      <p class="now" aria-hidden="true"><time></time><span></span></p>
+
+      <div class="copy copy--mark">
+        <p class="wordmark"><span class="wordmark__jp" lang="ja">黒湯</span><span class="wordmark__en">Kuroyu</span></p>
+        <p class="wordmark__line">A tonkotsu counter in Keong Saik. Open till two.</p>
+      </div>
+
+      <div class="copy copy--rewind" aria-hidden="true">
+        <span class="rewind__t">23:42</span>
+        <span class="rewind__c">Back to eight in the morning.</span>
+      </div>
+
+      <div class="copy copy--lift">
+        <img class="still still--lift" src="assets/frames/lift-d/200.webp" alt="Chopsticks lift a tangle of thin noodles out of the bowl, steam rising." width="1600" height="904" loading="lazy">
+        <h2 class="lift__word">Lift.</h2>
+        <p class="lift__a">Nobody talks for the first minute.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACT 2 · 08:00 again. Why the broth is white: the pot, boiling. -->
+  <section class="act act--broth" id="broth" data-d="300" aria-labelledby="broth-h">
+    <div class="stage">
+      <canvas class="film film--broth" aria-hidden="true"></canvas>
+      <figure class="broth__img">
+        <img src="assets/img/broth.webp" srcset="assets/img/broth-m.webp 960w, assets/img/broth.webp 2400w" sizes="(max-width: 760px) 100vw, 70vw" alt="Pork bones at a hard, rolling boil in a wide steel pot, the broth gone milky white under the steam." width="2400" height="1357" loading="lazy">
+      </figure>
+      <div class="copy copy--broth">
+        <h2 class="h2" id="broth-h">Why it's white.</h2>
+        <p class="broth__l"><time>08:00.</time> Pork bones at a hard, rolling boil. Not a simmer.</p>
+        <p class="broth__l"><time>14:00.</time> The fat and collagen give way. The broth turns the colour of milk.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACT 3 · The night. What the regulars order, by the time they order it. -->
+  <section class="act act--menu" id="menu" aria-labelledby="menu-h">
+    <div class="stage">
+      <div class="track">
+        <div class="panel">
+          <h2 class="h2" id="menu-h">What the regulars order.</h2>
+          <p class="panel__p">Four bowls. Most nights, the same faces.</p>
+        </div>
+
+        <article class="bowl bowl--a" data-min="1430">
+          <figure class="bowl__fig"><img src="assets/img/start.webp" srcset="assets/img/start-m.webp 960w, assets/img/start.webp 1800w" sizes="(max-width: 760px) 84vw, 44vw" alt="Kuroyu tonkotsu: milky pork broth, chashu, soft egg, negi and nori in a black bowl." width="1800" height="1018" loading="lazy"></figure>
+          <div class="bowl__txt">
+            <time class="bowl__t">23:50</time>
+            <h3 class="bowl__n"><span lang="ja">黒湯</span>Kuroyu</h3>
+            <p class="bowl__who">The one to start with. Everyone does.</p>
+            <p class="bowl__what">Pork bone broth, chashu, egg, negi, nori.</p>
+            <p class="bowl__p">Tonkotsu <span>S$17</span></p>
+          </div>
+        </article>
+
+        <article class="bowl bowl--b" data-min="1470">
+          <figure class="bowl__fig"><img src="assets/img/menu-black.webp" sizes="(max-width: 760px) 84vw, 24vw" alt="Kuro: tonkotsu darkened with burnt garlic oil, wood ear, negi, chashu and egg." width="900" height="1125" loading="lazy"></figure>
+          <div class="bowl__txt">
+            <time class="bowl__t">00:30</time>
+            <h3 class="bowl__n"><span lang="ja">黒</span>Kuro</h3>
+            <p class="bowl__who">After a late shift. Same seat, extra garlic.</p>
+            <p class="bowl__what">Burnt garlic oil, wood ear, negi, chashu, egg.</p>
+            <p class="bowl__p">Black garlic <span>S$19</span></p>
+          </div>
+        </article>
+
+        <article class="bowl bowl--c" data-min="1510">
+          <figure class="bowl__fig"><img src="assets/img/menu-red.webp" sizes="(max-width: 760px) 84vw, 27vw" alt="Aka: red chilli miso broth with minced pork, bean sprouts and corn." width="900" height="1125" loading="lazy"></figure>
+          <div class="bowl__txt">
+            <time class="bowl__t">01:10</time>
+            <h3 class="bowl__n"><span lang="ja">赤</span>Aka</h3>
+            <p class="bowl__who">Whoever came straight from drinks.</p>
+            <p class="bowl__what">Chilli miso, minced pork, bean sprouts, corn.</p>
+            <p class="bowl__p">Spicy miso <span>S$19</span></p>
+          </div>
+        </article>
+
+        <article class="bowl bowl--d" data-min="1540">
+          <figure class="bowl__fig"><img src="assets/img/menu-shio.webp" sizes="(max-width: 760px) 84vw, 22vw" alt="Shio: a clear golden salt broth with thin noodles, chashu, yuzu peel and a herb leaf." width="900" height="1125" loading="lazy"></figure>
+          <div class="bowl__txt">
+            <time class="bowl__t">01:40</time>
+            <h3 class="bowl__n"><span lang="ja">塩</span>Shio</h3>
+            <p class="bowl__who">The one before closing. Light enough to sleep after.</p>
+            <p class="bowl__what">Clear salt broth, yuzu peel, chashu, thin noodles.</p>
+            <p class="bowl__p">Yuzu clear <span>S$18</span></p>
+          </div>
+        </article>
+        <div class="track__end" aria-hidden="true"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACT 4 · 02:00. Last bowl. -->
+  <section class="act act--last" id="last" data-d="300" aria-labelledby="last-h">
+    <div class="stage">
+      <figure class="last__img">
+        <img src="assets/img/counter.webp" srcset="assets/img/counter-m.webp 960w, assets/img/counter.webp 2400w" sizes="100vw" alt="The Kuroyu counter at night: eight wooden stools, pendant lamps, a cook at the stock pots, rain on the street outside." width="2400" height="1357" loading="lazy">
+      </figure>
+      <div class="last__dark" aria-hidden="true"></div>
+      <div class="copy copy--last">
+        <h2 class="h2" id="last-h"><span class="ln"><span>Eight seats.</span></span> <span class="ln"><span>Last bowl at two.</span></span></h2>
+        <dl class="facts">
+          <div><dt>Open</dt><dd>Tuesday to Sunday, 6pm to 2am</dd></div>
+          <div><dt>Where</dt><dd>Keong Saik, Singapore</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACT 5 · Close. The empty bowl, still warm. Doors at six. -->
+  <section class="act act--close close" id="close" data-d="160" aria-labelledby="close-h">
+    <div class="stage">
+      <picture class="close__bowl">
+        <source media="(max-width: 760px)" srcset="assets/frames/build-m/000.webp">
+        <img src="assets/frames/build-d/000.webp" alt="The empty black bowl on the counter." width="1600" height="904" loading="lazy">
+      </picture>
+      <div class="steam steam--close" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      <div class="close__copy">
+        <h2 class="close__h" id="close-h">Your seat is still warm.</h2>
+        <a class="btn" href="#book" id="book">Book a seat</a>
+      </div>
+      <footer class="foot">
+        <p>Kuroyu is a concept by Henry Chua. Not a real restaurant.</p>
+      </footer>
+    </div>
+  </section>
+</main>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js" defer></script>
+<script src="js/site.js" defer></script>
+</body>
+</html>
