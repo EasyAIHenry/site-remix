@@ -2,7 +2,7 @@
 
 **What:** a made-up Halloween haunted-house attraction, 17 Oct to 2 Nov 2026, Singapore. Concept site for a reel. Footer says it's a concept.
 
-**The bar:** Awwwards Site of the Day, horror-film title sequence. Henry rejected the last round as "horrible, nothing like the video". The standard: a cinematic AI film you drive with your scroll. Every stretch of scroll must move something or build dread. It has to make someone flinch.
+**The bar:** Awwwards Site of the Day, horror-film title sequence. The standard: a cinematic AI film you drive with your scroll. Every stretch of scroll must move something or build dread. It has to make someone flinch.
 
 **The one moment:** "you scroll up to the door, it opens, you creep down the hallway and she runs at you."
 
@@ -19,7 +19,7 @@ Signature interaction: a **flashlight cursor** in the darker sections (the page 
 5. **Close.** One button: "Book your night". Footer: "The Hollow House is a concept by Henry Chua. Not a real event."
 
 ## Assets (all AI, Higgsfield: GPT Image 2.5 + Kling 3.0)
-`clip-approach.mp4` (10 s, gate to open door), `clip-hallway.mp4` (10 s, hallway to face), `start.png` (gate), `end_a.png` (open door), `face_a.png` (scare), `room-*.png`.
+`clip-approach.mp4` (10 s, gate to open door), `clip-hallway.mp4` (10 s, hallway to face), `start.png` (gate), `end.png` (open door), `face_a.png` (scare), `room-*.png`.
 
 ## THE STORY (Henry, 7 Oct: the site must tell one story; animation and words follow it)
 

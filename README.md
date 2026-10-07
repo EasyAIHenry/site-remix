@@ -15,20 +15,22 @@ Both products are made up. Open `index.html` to pick one.
 
 ---
 
-## How it's done (4 steps)
+## How it's done (5 steps)
 
 ### 1. Write the story before any code
 One device carries the whole page: a clock, a case file, a countdown. Then every section is *story beat → what moves → exact words*. The two briefs are in [`docs/`](docs/).
 
-### 2. Make the film: first frame, last frame, then the motion
-- Make the end state as a still (the finished bowl, the open door).
+### 2. Make the first and last frame as stills
+- Make the end state first (the finished bowl, the open door).
 - Make the start state from it ("exactly the same photograph, the only change: the bowl is empty").
-- Give both to an image-to-video model (Kling 3.0, 10 s, start + end frame). It only invents the motion in between, so your scroll lands exactly on the hero shot.
 
-### 3. Build the page around the film
+### 3. Make the film between them
+Give both stills to Kling 3.0 (10 s, start + end frame, Pro, sound off). It only invents the motion in between, so your scroll lands exactly on the hero shot. Check a 1-frame-per-second contact sheet before you use it.
+
+### 4. Build the page around the film
 Claude turns each clip into frames and plays them on a canvas as you scroll (GSAP + Lenis). Every label is timed to the frame its moment happens. Text sits beside the film, never on it.
 
-### 4. Review it like an award jury, then fix
+### 5. Review it like an award jury, then fix
 Record a real scroll, then have a second Claude, briefed as a creative director at an award-winning studio, score it and list must-fixes with exact values. Repeat until it says ship.
 - Round 1: both sites 4/10.
 - Round 3: both sites 7.5/10.
@@ -38,7 +40,7 @@ Record a real scroll, then have a second Claude, briefed as a creative director 
 ## Use the skill
 
 ```bash
-npx skills@latest add EasyAIHenry/site-remix
+npx skills@latest add EasyAIHenry/site-remix -g -a claude-code -y
 ```
 
 Or copy `skill/story-scroll/` into `~/.claude/skills/`. Then: `/story-scroll a website for <your business>`.
@@ -53,6 +55,6 @@ skill/story-scroll/    the Claude skill
 ```
 
 ## Credits
-Motion: [GSAP](https://gsap.com), [Lenis](https://lenis.darkroom.engineering). Icons where used: [Lucide](https://lucide.dev) (ISC). Fonts: Google Fonts (SIL OFL). Film and images: AI-generated on Higgsfield. Kuroyu, The Hollow House and everyone in them are made up.
+Motion: [GSAP](https://gsap.com), [Lenis](https://lenis.dev). Icons where used: [Lucide](https://lucide.dev) (ISC). Fonts: Google Fonts (SIL OFL). Film and images: AI-generated on Higgsfield. Kuroyu, The Hollow House and everyone in them are made up.
 
 MIT © Henry Chua

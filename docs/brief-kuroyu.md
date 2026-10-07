@@ -2,7 +2,7 @@
 
 **What:** a made-up 8-seat late-night tonkotsu ramen counter in Singapore. Concept site for a reel. Footer says it's a concept.
 
-**The bar:** Awwwards Site of the Day. Henry rejected the last round as "horrible, nothing like the video". The video standard: a cinematic AI film that plays as you scroll, so the page feels like a film you drive with your thumb. If a section doesn't move or doesn't make you stop, it goes.
+**The bar:** Awwwards Site of the Day. The standard: a cinematic AI film that plays as you scroll, so the page feels like a film you drive with your thumb. If a section doesn't move or doesn't make you stop, it goes.
 
 **The one moment:** "you scroll and the ramen builds itself in front of you."
 
@@ -20,7 +20,7 @@ Type direction: a high-contrast editorial serif for display (e.g. Cormorant Gara
 6. **Close.** One button, one label: "Book a seat". Footer: "Kuroyu is a concept by Henry Chua. Not a real restaurant."
 
 ## Assets (all AI, Higgsfield: GPT Image 2.5 + Kling 3.0)
-`clip-build.mp4` (10 s, last frame = `start.png` finished bowl, first frame = `end_a.png` empty bowl), `clip-lift.mp4` (10 s), `broth.png`, `counter.png`, `menu-*.png`, `start.png`.
+`clip-build.mp4` (10 s, first frame = `start.png` empty bowl, last frame = `end.png` finished bowl), `clip-lift.mp4` (10 s), `broth.png`, `counter.png`, `menu-*.png`.
 
 ## THE STORY (Henry, 7 Oct: the site must tell one story; animation and words follow it)
 
