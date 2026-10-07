@@ -11,7 +11,7 @@ Two websites built that way. Each one is a short film that plays as you scroll, 
 
 Both products are made up. Open `index.html` to pick one.
 
-**What it cost:** about 120 Higgsfield credits for all the film and stills of both sites (Kling 3.0 + GPT Image 2.5). Every prompt is in [`docs/PROMPTS.md`](docs/PROMPTS.md).
+**What it cost:** about US$4.60 of Higgsfield credits for all the film and stills of both sites (Kling 3.0 + GPT Image 2.5, at the Plus plan rate). Every prompt is in [`docs/PROMPTS.md`](docs/PROMPTS.md).
 
 ---
 
